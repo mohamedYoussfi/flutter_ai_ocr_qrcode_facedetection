@@ -16,4 +16,4 @@
 <hr>
 <img src="captures/qrscan1.png">
 <hr>
-<img src="captures/qrscan1.png">
+<img src="captures/qrscan2.png">

@@ -1,5 +1,6 @@
 /// @Author : Mohamed YOUSSFI : med@youssfi.net
 import 'package:flutter/material.dart';
+import 'package:ocr_app/pages/graphics.page.dart';
 import 'package:ocr_app/pages/face.detector.page.dart';
 import 'package:ocr_app/pages/home.page.dart';
 import 'package:ocr_app/pages/ocr.page.dart';
@@ -23,7 +24,8 @@ class MyApp extends StatelessWidget {
         "/ocr":(context)=>const OcrPage(),
         "/face":(context)=>const FaceDetectorPage(),
         "/QR":(context)=>const QRCodePage(),
-        "/scanQR": (context)=> const QRViewScannerPage()
+        "/scanQR": (context)=> const QRViewScannerPage(),
+        "/graphics": (context)=> const GraphicsPage()
       },
     );
   }

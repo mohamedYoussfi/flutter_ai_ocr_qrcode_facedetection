@@ -9,6 +9,7 @@ class MyDrawer extends StatelessWidget {
     {"title":"Face Detector", "icon": Icon(Icons.face), "route":"/face"},
     {"title":"QR Code Generate", "icon": Icon(Icons.qr_code), "route":"/QR"},
     {"title":"QR Scan & Generate", "icon": Icon(Icons.qr_code), "route":"/scanQR"},
+    {"title":"Graphics", "icon": Icon(Icons.grading), "route":"/graphics"},
   ];
   @override
   Widget build(BuildContext context) {

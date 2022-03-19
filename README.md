@@ -2,6 +2,8 @@
 <hr>
 <img src="captures/menu.png">
 <hr>
+<img src="captures/graphics.png">
+<hr>
 <img src="captures/ocr1.png">
 <hr>
 <img src="captures/ocr2.png">

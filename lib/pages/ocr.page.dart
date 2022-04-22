@@ -21,19 +21,25 @@ class _OcrPageState extends State<OcrPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(title: const Text('OCR'),),
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Container(
-              height: MediaQuery.of(context).size.height*0.5,
-              child: isLoaded?Image.file(imageFile):Text("No IMage"),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: SizedBox(
+                height: MediaQuery.of(context).size.height*0.5,
+                child: isLoaded?Image.file(imageFile):const Text("No IMage"),
+              ),
             ),
-            Container(
-              height: MediaQuery.of(context).size.height*0.5,
-              child: Text("${finalText}"),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: SizedBox(
+                height: MediaQuery.of(context).size.height*0.5,
+                child: SingleChildScrollView(child: Text("${finalText}")),
+              ),
             )
           ],
         ),

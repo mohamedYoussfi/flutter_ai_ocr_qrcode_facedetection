@@ -1,40 +1,50 @@
 /// @Author : Mohamed YOUSSFI : med@youssfi.net
 import 'package:flutter/material.dart';
-
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:ocr_app/bloc/theme.bloc.dart';
 class MyDrawer extends StatelessWidget {
   const MyDrawer({Key? key}) : super(key: key);
-  final  menus=const [
-    {"title":"Home", "icon": Icon(Icons.home), "route":"/"},
-    {"title":"OCR", "icon": Icon(Icons.ac_unit), "route":"/ocr"},
-    {"title":"Face Detector", "icon": Icon(Icons.face), "route":"/face"},
-    {"title":"QR Code Generate", "icon": Icon(Icons.qr_code), "route":"/QR"},
-    {"title":"QR Scan & Generate", "icon": Icon(Icons.qr_code), "route":"/scanQR"},
-    {"title":"Graphics", "icon": Icon(Icons.grading), "route":"/graphics"},
-  ];
   @override
   Widget build(BuildContext context) {
+    final menus=[
+      {"title":"Home", "icon": Icon(Icons.home, color: Theme.of(context).primaryColor,), "route":"/"},
+      {"title":"OCR", "icon": Icon(Icons.ac_unit, color: Theme.of(context).primaryColor), "route":"/ocr"},
+      {"title":"Face Detector", "icon": Icon(Icons.face, color: Theme.of(context).primaryColor), "route":"/face"},
+      {"title":"QR Code Generate", "icon": Icon(Icons.qr_code, color: Theme.of(context).primaryColor), "route":"/QR"},
+      {"title":"QR Scan & Generate", "icon": Icon(Icons.qr_code, color: Theme.of(context).primaryColor), "route":"/scanQR"},
+      {"title":"Graphics", "icon": Icon(Icons.grading, color: Theme.of(context).primaryColor), "route":"/graphics"},
+      {"title":"Github Users", "icon": Icon(Icons.verified_user, color: Theme.of(context).primaryColor), "route":"/users"},
+    ];
     return Drawer(
       child: Column(
         children: [
           DrawerHeader(
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                   gradient: LinearGradient(
                       colors: [
-                        Colors.white, Colors.deepOrange
+                        Colors.white,
+                        Theme.of(context).colorScheme.primary
                       ]
                   )
               ),
               child: Row(
-                children: const [
-                  CircleAvatar(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children:  [
+                  const CircleAvatar(
                     radius: 50,
                     backgroundImage: AssetImage("images/profile.jpg"),
-                  )
+                  ),
+                  IconButton(onPressed: (){
+                    context.read<ThemeBloc>().add(SwitchThemeEvent());
+                  }, icon: const Icon(Icons.switch_account))
                 ],
               )
           ),
           Expanded(
-            child: ListView.builder(
+            child: ListView.separated(
+                 separatorBuilder: (_,__){
+                   return Divider(color: Theme.of(context).primaryColor,height: 1,);
+                 },
                 itemCount: menus.length,
                 itemBuilder: (_,index){
                   return ListTile(

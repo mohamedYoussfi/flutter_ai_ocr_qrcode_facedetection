@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 class ShapePainter extends CustomPainter {
   final double radians;
   final double radius;
-  ShapePainter(this.radians, this.radius);
+  final BuildContext context;
+  ShapePainter(this.radians, this.radius,this.context);
   @override
   void paint(Canvas canvas, Size size) {
     final double xc=size.width/2;
@@ -24,12 +25,12 @@ class ShapePainter extends CustomPainter {
       ..style=PaintingStyle.fill
       ..strokeCap = StrokeCap.round;
     Paint paint3=Paint()
-      ..color=Colors.deepOrange
+      ..color=Theme.of(context).primaryColor
       ..strokeWidth=5
       ..style=PaintingStyle.stroke
       ..strokeCap = StrokeCap.round;
     canvas.drawCircle(center, radius*2, paint3);
-    canvas.drawCircle(centre2, radius+2, paint2);
+    canvas.drawCircle(centre2, radius+2, paint3);
     canvas.drawCircle(centre2, radius, paint);
     final double xp= radius*cos(radians*3)+xc2;
     final double yp=yc2+radius*sin(radians*3);

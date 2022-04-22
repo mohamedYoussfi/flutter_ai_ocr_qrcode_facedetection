@@ -53,7 +53,7 @@ class _GraphicsPageState extends State<GraphicsPage> with TickerProviderStateMix
               animation: animation,
               builder: (context,snapshot){
                 return CustomPaint(
-                  painter: ShapePainter(animation.value, radius),
+                  painter: ShapePainter(animation.value, radius,context),
                   child: Container(),
                 );
               },
